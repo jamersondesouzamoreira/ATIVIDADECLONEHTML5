@@ -1,0 +1,141 @@
+/* 1. RESET GLOBAL (Unificado no topo) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #f5f5f5; /* Um cinza bem claro para destacar os cards brancos */
+}
+
+/* 2. CONTAINER (Ajustado) */
+.container {
+    /* Cuidado: estava 11000px, o correto para simular o UOL é em torno de 1100px ou 1200px */
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Ajustei o padding para 20px; 200px empurraria muito o conteúdo para o meio */
+    padding: 0 20px; 
+}
+
+/* 3. HEADER E NAV */
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: #ffb400; }
+
+.user-actions a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.nav-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* 4. LAYOUT PRINCIPAL (GRID) */
+.content-grid {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px; /* Espaço no fim da página */
+}
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px;
+}
+
+/* 5. NOTÍCIA PRINCIPAL (Onde estava a bola gigante) */
+.main-news {
+    position: relative;
+    height: 450px; /* Aumentei um pouco a altura para caber melhor o texto */
+    overflow: hidden; /* Garante que a imagem não vaze */
+}
+
+/* Para o texto aparecer SOBRE a imagem */
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empurra o texto para baixo */
+    padding: 20px;
+    position: relative;
+}
+
+.image-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o bloco sem deformar */
+    z-index: 1; /* Imagem fica atrás */
+}
+
+.tag, .image-placeholder h2 {
+    position: relative;
+    z-index: 2; /* Texto fica na frente da imagem */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Sombra para ler o texto sobre a imagem */
+}
+
+/* 6. CARDS LATERAIS E INFERIORES */
+.side-news {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bottom-news {
+    display: flex;
+    gap: 20px;
+}
+
+.small-card, .mini-card {
+    background: #fff;
+    border: 1px solid #eee;
+    flex: 1;
+}
+
+.small-card img, .mini-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.mini-card {
+    border-bottom: 4px solid #ffb400; /* Borda mais grossa como na imagem */
+}
